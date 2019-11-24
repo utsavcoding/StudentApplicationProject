@@ -5,6 +5,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+
+import com.iiitb.beans.Course;
+import com.iiitb.beans.Specialization;
+import com.iiitb.beans.Student;
 import com.iiitb.utils.DBUtils;
 
 /**
@@ -23,7 +29,23 @@ public class MyResource {
     @Produces(MediaType.TEXT_PLAIN)
     public String getIt() {
     	DBUtils obj=new DBUtils();
-    	obj.getSession();
+    	Session sess=obj.getSession();
+    	
+    	/*Specialization specialization=new Specialization();
+    	
+    	specialization.setName("Data Science");
+    	specialization.setMinCredit(20);
+    	specialization.setCode("DS");
+    	
+    	Transaction txn=sess.beginTransaction();
+    	
+    	
+    	sess.save(specialization);
+    	
+    	txn.commit();*/
+    	sess.close();
+    	
+    	
         return "Got it!";
     }
 }
