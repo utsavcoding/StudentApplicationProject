@@ -25,6 +25,9 @@ public class JobApplication {
 	
 	@NotBlank
 	private double grade;
+	
+	@NotBlank
+	private String cvPath;
 
 	public Integer getId() {
 		return id;
@@ -56,5 +59,13 @@ public class JobApplication {
 
 	public void setGrade(double grade) {
 		this.grade = grade;
+	}
+
+	public String getCvPath() {
+		return cvPath;
+	}
+
+	public void setCvPath(String cvPath) {
+		this.cvPath = cvPath;
 	}
 }
