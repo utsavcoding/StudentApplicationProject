@@ -25,7 +25,8 @@ function validateLogin(){
                 		window.location.href = "/alumni-placement/offers.html";
                 	}
                 	else
-                		$('.login-error').show();
+                		alert("Wrong Username or Password");
+                		//$('.login-error').show();
                 	
                 	$('#rollNo').val("");
                 	$('#password').val("") ;

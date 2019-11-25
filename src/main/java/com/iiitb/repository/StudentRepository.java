@@ -9,7 +9,7 @@ import com.iiitb.utils.DBUtils;
 
 public class StudentRepository {
 
-	public Student findByRollNumber(Integer rollNumber) {
+	public Student findByRollNumber(String rollNumber)throws Exception {
 		Session session = DBUtils.getSession();
         Transaction transaction = session.beginTransaction();
         

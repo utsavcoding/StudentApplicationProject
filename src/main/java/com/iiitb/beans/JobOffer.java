@@ -35,6 +35,28 @@ public class JobOffer {
 	@OneToMany(mappedBy = "jobOffer")
 	private List<JobApplication> jobApplications;
 
+	@NotBlank
+	private String jobPosition;
+	
+	@NotBlank
+	private Integer compensation;
+
+	public String getJobPosition() {
+		return jobPosition;
+	}
+
+	public void setJobPosition(String jobPosition) {
+		this.jobPosition = jobPosition;
+	}
+
+	public Integer getCompensation() {
+		return compensation;
+	}
+
+	public void setCompensation(Integer compensation) {
+		this.compensation = compensation;
+	}
+
 	public Integer getId() {
 		return id;
 	}

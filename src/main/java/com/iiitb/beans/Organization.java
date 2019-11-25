@@ -22,7 +22,7 @@ public class Organization {
 	@Column(unique=true)
 	private String name;
 	
-	private Integer contactNumber;
+	private Long contactNumber;
 	
 	private String address;
 	
@@ -45,11 +45,12 @@ public class Organization {
 		this.name = name;
 	}
 
-	public Integer getContactNumber() {
+
+	public Long getContactNumber() {
 		return contactNumber;
 	}
 
-	public void setContactNumber(Integer contactNumber) {
+	public void setContactNumber(Long contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 
