@@ -21,7 +21,7 @@ function validateLogin(){
                 timeout: 600000,
                 success: function(response) {
                 	if(response.status=="200"){
-                		window.localStorage.setItem('rollNo', response.username);
+                		window.localStorage.setItem('rollNo', response.rollNumber);
                 		window.location.href = "/alumni-placement/offers.html";
                 	}
                 	else

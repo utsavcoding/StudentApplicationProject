@@ -24,8 +24,10 @@ public class StudentLoginController {
 		StudentService studentService = new StudentService();
 		try {
 			Student student = studentService.findByRollNumber(responseJson.getString("rollNumber"));
-			if(student.getPassword().equals(responseJson.getString("password")))
+			if(student.getPassword().equals(responseJson.getString("password"))){
 				responseJson.put("status", 200);
+				responseJson.put("rollNumber",responseJson.get("rollNumber"));
+			}
 			else
 				responseJson.put("status", 201);
 		} catch (Exception e) {
