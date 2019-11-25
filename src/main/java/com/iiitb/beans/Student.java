@@ -32,6 +32,10 @@ public class Student {
 	@NotBlank
 	private String password;
 	
+	@NotBlank
+	@Column(unique = true)
+	private String email;
+	
 	@ManyToMany
 	private List<Course> courses;
 	
@@ -112,6 +116,14 @@ public class Student {
 
 	public void setDomain(Domain domain) {
 		this.domain = domain;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 }
 
