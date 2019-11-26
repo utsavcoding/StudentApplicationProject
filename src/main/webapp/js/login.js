@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	$('#errorAlert').hide();
     validateLogin();
 });
 
@@ -24,10 +25,10 @@ function validateLogin(){
                 		window.localStorage.setItem('rollNo', response.rollNumber);
                 		window.location.href = "/alumni-placement/offers.html";
                 	}
-                	else
-                		alert("Wrong Username or Password");
-                		//$('.login-error').show();
-                	
+                	else{
+                		$('#errorAlert').show();
+                		$('#errorAlert').delay(10000).fadeOut();
+                	}
                 	$('#rollNo').val("");
                 	$('#password').val("") ;
                 },
