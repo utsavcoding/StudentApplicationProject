@@ -1,13 +1,14 @@
 package com.iiitb.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
@@ -36,8 +37,8 @@ public class Student {
 	@Column(unique = true)
 	private String email;
 	
-	@ManyToMany
-	private List<Course> courses;
+	@OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
+	private List<StudentCourse> studentCourses=new ArrayList<StudentCourse>();
 	
 	@ManyToOne
 	@NotBlank
@@ -86,14 +87,6 @@ public class Student {
 		this.password = password;
 	}
 
-	public List<Course> getCourses() {
-		return courses;
-	}
-
-	public void setCourses(List<Course> courses) {
-		this.courses = courses;
-	}
-
 	public List<JobApplication> getJobApplications() {
 		return jobApplications;
 	}
@@ -124,6 +117,14 @@ public class Student {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public List<StudentCourse> getStudentCourses() {
+		return studentCourses;
+	}
+
+	public void setStudentCourses(List<StudentCourse> studentCourses) {
+		this.studentCourses = studentCourses;
 	}
 }
 

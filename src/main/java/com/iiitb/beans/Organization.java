@@ -1,13 +1,10 @@
 package com.iiitb.beans;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -26,9 +23,6 @@ public class Organization {
 	
 	private String address;
 	
-	@OneToMany(mappedBy = "organization")
-	private List<JobOffer> jobOffers;
-
 	public Integer getId() {
 		return id;
 	}
@@ -60,13 +54,5 @@ public class Organization {
 
 	public void setAddress(String address) {
 		this.address = address;
-	}
-
-	public List<JobOffer> getJobOffers() {
-		return jobOffers;
-	}
-
-	public void setJobOffers(List<JobOffer> jobOffers) {
-		this.jobOffers = jobOffers;
 	}
 }

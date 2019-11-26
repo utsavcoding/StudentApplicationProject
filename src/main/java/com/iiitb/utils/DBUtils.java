@@ -15,6 +15,7 @@ import com.iiitb.beans.JobOffer;
 import com.iiitb.beans.Organization;
 import com.iiitb.beans.Specialization;
 import com.iiitb.beans.Student;
+import com.iiitb.beans.StudentCourse;
 
 public class DBUtils {
     private static final SessionFactory sessionFactory;
@@ -27,7 +28,7 @@ public class DBUtils {
 			configuration.addAnnotatedClass(Student.class).addAnnotatedClass(Course.class)
 					.addAnnotatedClass(Specialization.class).addAnnotatedClass(Domain.class)
 					.addAnnotatedClass(JobOffer.class).addAnnotatedClass(JobApplication.class)
-					.addAnnotatedClass(Organization.class);
+					.addAnnotatedClass(Organization.class).addAnnotatedClass(StudentCourse.class);
             
             sessionFactory = configuration.buildSessionFactory();
         }

@@ -1,13 +1,10 @@
 package com.iiitb.beans;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -26,14 +23,11 @@ public class Specialization {
 	private String code;
 	
 	@NotBlank
-	private Integer minCredit;
+	private Double minCredit;
 	
-	@OneToMany(mappedBy = "specialization")
-	private List<Course> courses;
+	/*@OneToMany(mappedBy = "specialization")
+	private List<Course> courses;*/
 	
-	@OneToMany(mappedBy = "specialization")
-	private List<JobOffer> jobOffers;
-
 	public Integer getId() {
 		return id;
 	}
@@ -58,27 +52,11 @@ public class Specialization {
 		this.code = code;
 	}
 
-	public Integer getMinCredit() {
+	public Double getMinCredit() {
 		return minCredit;
 	}
 
-	public void setMinCredit(Integer minCredit) {
+	public void setMinCredit(Double minCredit) {
 		this.minCredit = minCredit;
-	}
-
-	public List<Course> getCourses() {
-		return courses;
-	}
-
-	public void setCourses(List<Course> courses) {
-		this.courses = courses;
-	}
-
-	public List<JobOffer> getJobOffers() {
-		return jobOffers;
-	}
-
-	public void setJobOffers(List<JobOffer> jobOffers) {
-		this.jobOffers = jobOffers;
 	}
 }

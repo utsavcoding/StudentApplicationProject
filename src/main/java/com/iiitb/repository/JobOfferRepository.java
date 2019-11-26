@@ -17,7 +17,6 @@ public class JobOfferRepository {
         String hql = "FROM JobOffer";
         Query query = session.createQuery(hql);
         List<JobOffer> offers = query.list();
-        System.out.print(offers.size()+"Repo");
         transaction.commit();
         session.close();
         return offers;

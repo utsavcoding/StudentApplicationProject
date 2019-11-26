@@ -1,13 +1,10 @@
 package com.iiitb.beans;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -27,11 +24,8 @@ public class Domain {
 	@NotBlank
 	private String branchCode;
 	
-	@OneToMany(mappedBy = "domain")
-	private List<Student> students;
-	
-	@OneToMany(mappedBy = "domain")
-	private List<JobOffer> jobOffers;
+	/*@OneToMany(mappedBy = "domain")
+	private List<Student> students;*/
 	
 	@NotBlank
 	@Column(unique=true)
@@ -77,19 +71,4 @@ public class Domain {
 		this.domainCode = domainCode;
 	}
 
-	public List<Student> getStudents() {
-		return students;
-	}
-
-	public void setStudents(List<Student> students) {
-		this.students = students;
-	}
-
-	public List<JobOffer> getJobOffers() {
-		return jobOffers;
-	}
-
-	public void setJobOffers(List<JobOffer> jobOffers) {
-		this.jobOffers = jobOffers;
-	}
 }

@@ -1,13 +1,10 @@
 package com.iiitb.beans;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -32,8 +29,8 @@ public class JobOffer {
 	@NotBlank
 	private Domain domain;
 	
-	@OneToMany(mappedBy = "jobOffer")
-	private List<JobApplication> jobApplications;
+	/*@OneToMany(mappedBy = "jobOffer")
+	private List<JobApplication> jobApplications;*/
 
 	@NotBlank
 	private String jobPosition;
@@ -87,14 +84,6 @@ public class JobOffer {
 
 	public void setSpecialization(Specialization specialization) {
 		this.specialization = specialization;
-	}
-
-	public List<JobApplication> getJobApplications() {
-		return jobApplications;
-	}
-
-	public void setJobApplications(List<JobApplication> jobApplications) {
-		this.jobApplications = jobApplications;
 	}
 
 	public Domain getDomain() {

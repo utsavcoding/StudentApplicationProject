@@ -6,7 +6,6 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.iiitb.beans.Student;

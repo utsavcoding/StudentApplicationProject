@@ -1,5 +1,6 @@
 package com.iiitb.beans;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -7,8 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -26,8 +27,8 @@ public class Course {
 	@Column(unique=true)
 	private String code;
 	
-	@ManyToMany(mappedBy = "courses")
-	private List<Student> students;
+	@OneToMany(mappedBy = "course")
+	private List<StudentCourse> studentCourses=new ArrayList<StudentCourse>();
 	
 	@NotBlank
 	@ManyToOne
@@ -57,12 +58,12 @@ public class Course {
 		this.code = code;
 	}
 
-	public List<Student> getStudents() {
-		return students;
+	public List<StudentCourse> getStudentCourses() {
+		return studentCourses;
 	}
 
-	public void setStudents(List<Student> students) {
-		this.students = students;
+	public void setStudentCourses(List<StudentCourse> studentCourses) {
+		this.studentCourses = studentCourses;
 	}
 
 	public Specialization getSpecialization() {
