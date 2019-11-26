@@ -5,8 +5,9 @@ $(document).ready(function(){
 	$.get(api, function (offers) {
 	        var offer_data_body = "";
 	        for (var i = 0; i < offers.length; i++) {
+	        	var slno=i+1;
 	            offer_data_body += '<tr>'
-	                + '<td>' + i + '</td>'
+	                + '<td>' + slno + '</td>'
 	                + '<td>' + offers[i].minGrade + '</td>'
 	                + '<td>' + offers[i].organization.name + '</td>'
 	                + '<td>' + offers[i].specialization.name + '</td>'

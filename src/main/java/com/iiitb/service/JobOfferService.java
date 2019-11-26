@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import com.iiitb.beans.JobApplication;
 import com.iiitb.beans.JobOffer;
 import com.iiitb.beans.Student;
 import com.iiitb.repository.JobOfferRepository;
@@ -28,6 +29,7 @@ public class JobOfferService {
 		double studentCredit=studentService.fetchCreditByStudentId(student.getId());
 		String spclCode=studentService.fetchSpecializationCodeByStudentId(student.getId());
 		
+		
 		List<JobOffer> filteredJobOffers=new ArrayList<JobOffer>();
 		
 		for (Iterator<JobOffer> itr = jobOffers.iterator(); itr.hasNext();) {
@@ -39,6 +41,15 @@ public class JobOfferService {
 					filteredJobOffers.add(jobOffer);
 				else if (jobOffer.getSpecialization() == null)
 					filteredJobOffers.add(jobOffer);
+			}
+		}
+		
+		for(Iterator<JobOffer> itr1=filteredJobOffers.iterator();itr1.hasNext();) {
+			JobOffer currentJobOffer=itr1.next();
+			for(Iterator<JobApplication> itr2=student.getJobApplications().iterator();itr2.hasNext();) {
+				JobOffer alreadyApplied=((JobApplication) itr2.next()).getJobOffer();
+				if(alreadyApplied.getId()==currentJobOffer.getId())
+					itr1.remove();
 			}
 		}
 		

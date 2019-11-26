@@ -13,6 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 public class Student {
 
@@ -45,6 +48,7 @@ public class Student {
 	private Domain domain;
 	
 	@OneToMany(mappedBy = "student")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private List<JobApplication> jobApplications;
 	
 	public Integer getId() {
