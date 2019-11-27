@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+
 import com.iiitb.beans.JobApplication;
 import com.iiitb.beans.JobOffer;
 import com.iiitb.beans.Student;
 import com.iiitb.repository.JobOfferRepository;
+import com.iiitb.utils.DBUtils;
 
 public class JobOfferService {
 	
@@ -60,4 +65,7 @@ public class JobOfferService {
 		List<JobOffer> jobOffers=filterJobOffer(jobOfferRepository.findAll(),rollNumber);
 		return jobOffers;
 	};
+	public JobOffer findById(Integer id)throws Exception {
+        return jobOfferRepository.findById(id)	;
+	}
 }

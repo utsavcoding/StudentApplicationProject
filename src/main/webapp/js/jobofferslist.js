@@ -5,19 +5,22 @@ $(document).ready(function(){
 	$.get(api, function (offers) {
 	        var offer_data_body = "";
 	        for (var i = 0; i < offers.length; i++) {
-	        	var slno=i+1;
-	            offer_data_body += '<tr>'
-	                + '<td>' + slno + '</td>'
-	                + '<td>' + offers[i].minGrade + '</td>'
+	        	offer_data_body += '<tr>'
+	                + '<th scope="row" class="' +(i)+'">' + (i+1) + '</td>'
 	                + '<td>' + offers[i].organization.name + '</td>'
-	                + '<td>' + offers[i].specialization.name + '</td>'
-	                + '<td>' + offers[i].domain.domainName + '</td>'
 	                + '<td>' + offers[i].jobPosition + '</td>'
 	                + '<td>' + offers[i].compensation + '</td>'
+	                + '<td>' + offers[i].specialization.name + '</td>'
+	                + '<td>' + '<form action="rest/application/apply" method="post" enctype="multipart/form-data">'
+	                +'<p>Select a file : <input type="file" name="file" /></p>'
+	                +'<input type="submit" value="Apply" class="btn btn-primary btn-block mt-4" />'
+	                +'<input type="hidden" name="minGrade" value="'+ offers[i].minGrade +'"/>'
+	                +'<input type="hidden" name="id" value="'+ offers[i].id +'"/>'
+	                +'<input type="hidden" name="rollNumber" value="'+ window.localStorage.getItem('rollNo') +'"/>'
+	                +'</form>'
 	                + '</tr>';
 	        }
 	        $('#offer_data tbody').html(offer_data_body);
 	    $('#offer_data').DataTable();
 	});
 });
-

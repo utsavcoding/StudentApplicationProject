@@ -21,4 +21,18 @@ public class JobOfferRepository {
         session.close();
         return offers;
     }
+    
+    public JobOffer findById(Integer id)throws Exception {
+		Session session = DBUtils.getSession();
+        Transaction transaction = session.beginTransaction();
+        
+        String hql = "FROM JobOffer WHERE id = :id";
+        Query query = session.createQuery(hql);
+        query.setParameter("id", id);
+        JobOffer jobOffer = (JobOffer) query.getSingleResult();
+        
+        transaction.commit();
+        session.close();
+        return jobOffer;
+	}
 }
