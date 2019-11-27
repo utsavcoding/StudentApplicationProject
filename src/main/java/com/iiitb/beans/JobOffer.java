@@ -15,6 +15,10 @@ public class JobOffer {
 	@NotBlank
 	private Integer id;
 	
+	/**
+	 * This is the minimum CGPA required to apply for this  jobOffer
+	 * Average of all the credit for all courses of a student;
+	 */
 	@NotBlank
 	private double minGrade;
 	
