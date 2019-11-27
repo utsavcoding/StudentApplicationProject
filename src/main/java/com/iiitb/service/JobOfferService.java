@@ -10,6 +10,7 @@ import org.hibernate.query.Query;
 
 import com.iiitb.beans.JobApplication;
 import com.iiitb.beans.JobOffer;
+import com.iiitb.beans.Specialization;
 import com.iiitb.beans.Student;
 import com.iiitb.repository.JobOfferRepository;
 import com.iiitb.utils.DBUtils;
@@ -41,11 +42,16 @@ public class JobOfferService {
 			JobOffer jobOffer = itr.next();
 			if (jobOffer.getDomain().getDomainCode().equals(student.getDomain().getDomainCode())
 					&& studentCredit >= jobOffer.getMinGrade()) {
-				if (jobOffer.getSpecialization().getCode() != null
+				Specialization specialization=null;
+				if (jobOffer.getSpecialization() != null
 						&& jobOffer.getSpecialization().getCode().equals(spclCode))
 					filteredJobOffers.add(jobOffer);
-				else if (jobOffer.getSpecialization() == null)
+				else if (jobOffer.getSpecialization() == null) {
+					specialization = new Specialization();
+					specialization.setName("");
+					jobOffer.setSpecialization(specialization);
 					filteredJobOffers.add(jobOffer);
+				}
 			}
 		}
 		

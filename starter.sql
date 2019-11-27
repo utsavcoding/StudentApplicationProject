@@ -1,0 +1,108 @@
+insert into Specialization (id,code,minCredit,name) values (1,"DS",20,"Data Science");
+insert into Specialization (id,code,minCredit,name) values (2,"SP",20,"Signal Processing");
+insert into Specialization (id,code,minCredit,name) values (3,"CS",20,"Theory and Systems");
+insert into Specialization (id,code,minCredit,name) values (4,"NC",20,"Networking and Communication");
+insert into Specialization (id,code,minCredit,name) values (5,"VL",20,"VLSI Systems");
+
+insert into Course (id,code,name,specialization_id) values (1,"DS603","Data Modelling",1);
+insert into Course (id,code,name,specialization_id) values (2,"DS703","Geographic Information Systems",1);
+insert into Course (id,code,name,specialization_id) values (3,"DS821","Spatial Computing",1);
+insert into Course (id,code,name,specialization_id) values (4,"DS822","Data Management for AI",1);
+insert into Course (id,code,name,specialization_id) values (5,"DS615","Techno-Economics of Networks",1);
+insert into Course (id,code,name,specialization_id) values (6,"NC100","Networks-1",4);
+insert into Course (id,code,name,specialization_id) values (7,"NC101","Networks-2",4);
+insert into Course (id,code,name,specialization_id) values (8,"NC102","Networks-3",4);
+insert into Course (id,code,name,specialization_id) values (9,"NC103","Networks-4",4);
+insert into Course (id,code,name,specialization_id) values (10,"NC104","Networks-5",4);
+
+insert into Domain (id,branchCode, disciplineCode, domainCode,domainName) values (1,"CS","MTech","MTC","MTech-CS");
+insert into Domain (id,branchCode, disciplineCode, domainCode,domainName)values (2,"CS","IMTech","IMTC","IMTech-CS");
+insert into Domain (id,branchCode, disciplineCode, domainCode,domainName)values (3,"CS","MS","MSC","MS-CS");
+insert into Domain (id,branchCode, disciplineCode, domainCode,domainName)values (4,"CS","PhD","PHDC","PhD-CS");
+insert into Domain (id,branchCode, disciplineCode, domainCode,domainName) values (5,"EC","MTech","MTE","MTech-EC");
+insert into Domain (id,branchCode, disciplineCode, domainCode,domainName)values (6,"EC","IMTech","IMTE","IMTech-EC");
+insert into Domain (id,branchCode, disciplineCode, domainCode,domainName)values (7,"EC","MS","MSE","MS-EC");
+insert into Domain (id,branchCode, disciplineCode, domainCode,domainName)values (8,"EC","PhD","PHDE","PhD-EC");
+
+insert into Student (id,email,firstName,lastName,middleName,password,rollNumber,domain_id) values (1,"vishwesh.vinchurkar@gmail.com","Vishwesh","Vinchurkar","Sudhirkumar","vinchurkarvishwesh","MT2019135","1");
+insert into Student (id,email,firstName,lastName,middleName,password,rollNumber,domain_id) values (2,"vipin.rai@gmail.com","Vipin","Rai","P","raivipin","MT2019134","1");
+insert into Student (id,email,firstName,lastName,middleName,password,rollNumber,domain_id) values (3,"vinay.patel@gmail.com","Vinay","Patel","Rajendrakumar","patelvinay","MT2019133","1");
+insert into Student (id,email,firstName,lastName,middleName,password,rollNumber,domain_id) values (4,"varun.agrawal@gmail.com","Varun","Agrawal","Rakeshkumar","agrawalvarun","MT2019132","1");
+insert into Student (id,email,firstName,lastName,middleName,password,rollNumber,domain_id) values (5,"vamsi.ponnada@gmail.com","Vamsi","Ponnada","Krishna","ponnadavamsi","MT2019131","1");
+insert into Student (id,email,firstName,lastName,middleName,password,rollNumber,domain_id) values (6,"vaibhav.sharma@gmail.com","Vaibhav","Sharma","Bhuwankumar","sharmavaibhav","MT2019130","1");
+insert into Student (id,email,firstName,lastName,middleName,password,rollNumber,domain_id) values (7,"vaibhav.dodiya@gmail.com","Vaibhav","Dodiya","Jagdishbhai","dodiyavaibhav","MT2019129","1");
+insert into Student (id,email,firstName,lastName,middleName,password,rollNumber,domain_id) values (8,"uttkarsh.jha@gmail.com","Uttkarsh","Jha","Ramkumar","jhauttkarsh","MT2019128","1");
+insert into Student (id,email,firstName,lastName,middleName,password,rollNumber,domain_id) values (9,"uttiya.ghosh@gmail.com","Uttiya","Ghosh","Utpalkumar","ghoshuttiya","MT2019127","1");
+insert into Student (id,email,firstName,lastName,middleName,password,rollNumber,domain_id) values (10,"utsav.tiwari@gmail.com","Utsav","Tiwari","Kumar","tiwariutsav","MT2019126","1");
+
+
+
+insert into StudentCourse (student_id,course_id,credit) values (1,6,4);
+insert into StudentCourse (student_id,course_id,credit) values (1,7,4);
+insert into StudentCourse (student_id,course_id,credit) values (1,8,4);
+insert into StudentCourse (student_id,course_id,credit) values (1,9,4);
+insert into StudentCourse (student_id,course_id,credit) values (1,10,4);
+insert into StudentCourse (student_id,course_id,credit) values (2,1,4);
+insert into StudentCourse (student_id,course_id,credit) values (2,2,4);
+insert into StudentCourse (student_id,course_id,credit) values (2,3,4);
+insert into StudentCourse (student_id,course_id,credit) values (2,4,4);
+insert into StudentCourse (student_id,course_id,credit) values (2,5,4);
+insert into StudentCourse (student_id,course_id,credit) values (3,1,4);
+insert into StudentCourse (student_id,course_id,credit) values (3,2,4);
+insert into StudentCourse (student_id,course_id,credit) values (3,3,4);
+insert into StudentCourse (student_id,course_id,credit) values (3,4,4);
+insert into StudentCourse (student_id,course_id,credit) values (3,5,4);
+insert into StudentCourse (student_id,course_id,credit) values (4,1,3);
+insert into StudentCourse (student_id,course_id,credit) values (4,2,3);
+insert into StudentCourse (student_id,course_id,credit) values (4,3,3);
+insert into StudentCourse (student_id,course_id,credit) values (4,4,3);
+insert into StudentCourse (student_id,course_id,credit) values (4,5,3);
+insert into StudentCourse (student_id,course_id,credit) values (5,1,3);
+insert into StudentCourse (student_id,course_id,credit) values (5,2,3);
+insert into StudentCourse (student_id,course_id,credit) values (5,3,4);
+insert into StudentCourse (student_id,course_id,credit) values (5,4,4);
+insert into StudentCourse (student_id,course_id,credit) values (5,5,4);
+insert into StudentCourse (student_id,course_id,credit) values (6,1,4);
+insert into StudentCourse (student_id,course_id,credit) values (6,2,4);
+insert into StudentCourse (student_id,course_id,credit) values (6,3,4);
+insert into StudentCourse (student_id,course_id,credit) values (6,4,4);
+insert into StudentCourse (student_id,course_id,credit) values (6,5,4);
+insert into StudentCourse (student_id,course_id,credit) values (7,1,4);
+insert into StudentCourse (student_id,course_id,credit) values (7,2,4);
+insert into StudentCourse (student_id,course_id,credit) values (7,3,4);
+insert into StudentCourse (student_id,course_id,credit) values (7,4,4);
+insert into StudentCourse (student_id,course_id,credit) values (7,5,4);
+insert into StudentCourse (student_id,course_id,credit) values (8,1,4);
+insert into StudentCourse (student_id,course_id,credit) values (8,2,4);
+insert into StudentCourse (student_id,course_id,credit) values (8,3,4);
+insert into StudentCourse (student_id,course_id,credit) values (8,4,4);
+insert into StudentCourse (student_id,course_id,credit) values (8,5,4);
+insert into StudentCourse (student_id,course_id,credit) values (9,1,4);
+insert into StudentCourse (student_id,course_id,credit) values (9,2,4);
+insert into StudentCourse (student_id,course_id,credit) values (9,3,4);
+insert into StudentCourse (student_id,course_id,credit) values (9,4,4);
+insert into StudentCourse (student_id,course_id,credit) values (9,5,4);
+insert into StudentCourse (student_id,course_id,credit) values (10,1,4);
+insert into StudentCourse (student_id,course_id,credit) values (10,2,4);
+insert into StudentCourse (student_id,course_id,credit) values (10,3,4);
+insert into StudentCourse (student_id,course_id,credit) values (10,4,4);
+insert into StudentCourse (student_id,course_id,credit) values (10,5,4);
+
+insert into Organization (id,address,contactNumber,name) values (1,"WhiteField","9876543210","Google");
+insert into Organization (id,address,contactNumber,name) values(2,"Bellandur","9876543211","Microsoft");
+insert into Organization (id,address,contactNumber,name) values(3,"Koramangla","9876543212","DirectI");
+insert into Organization (id,address,contactNumber,name) values(4,"Electronic City","9876543213","Cisco");
+
+insert into JobOffer (id,compensation,jobPosition, minGrade, domain_id, organization_id, specialization_id) values (1,2100000,"SDE-1",2.8,1,1,1);
+insert into JobOffer (id,compensation,jobPosition, minGrade, domain_id, organization_id, specialization_id) values (2,1600000,"SDE-1",2.8,1,2,1);
+insert into JobOffer (id,compensation,jobPosition, minGrade, domain_id, organization_id, specialization_id) values (3,1800000,"SDE-1",3.2,1,3,1);
+insert into JobOffer (id,compensation,jobPosition, minGrade, domain_id, organization_id, specialization_id) values (4,1700000,"Network Engineer",2.8,1,4,4);
+insert into JobOffer (id,compensation,jobPosition, minGrade, domain_id, organization_id) values (5,2100000,"SDE-1",2.8,1,1);
+insert into JobOffer (id,compensation,jobPosition, minGrade, domain_id, organization_id) values (6,2100000,"SDE-1",2.8,1,1);
+insert into JobOffer (id,compensation,jobPosition, minGrade, domain_id, organization_id) values (7,2100000,"SDE-1",2.8,1,1);
+insert into JobOffer (id,compensation,jobPosition, minGrade, domain_id, organization_id) values (8,2100000,"SDE-1",2.8,1,1);
+insert into JobOffer (id,compensation,jobPosition, minGrade, domain_id, organization_id) values (9,2100000,"SDE-1",2.8,1,1);
+insert into JobOffer (id,compensation,jobPosition, minGrade, domain_id, organization_id) values (10,2100000,"SDE-1",2.8,1,1);
+insert into JobOffer (id,compensation,jobPosition, minGrade, domain_id, organization_id) values (11,2100000,"SDE-1",2.8,1,1);
+insert into JobOffer (id,compensation,jobPosition, minGrade, domain_id, organization_id) values (12,2100000,"SDE-1",3.5,1,1);
+

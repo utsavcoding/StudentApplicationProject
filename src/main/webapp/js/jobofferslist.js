@@ -12,7 +12,7 @@ $(document).ready(function(){
 	                + '<td>' + offers[i].compensation + '</td>'
 	                + '<td>' + offers[i].specialization.name + '</td>'
 	                + '<td>' + '<form action="rest/application/apply" method="post" enctype="multipart/form-data">'
-	                +'<p>Select a file : <input type="file" name="file" /></p>'
+	                +'<p>Select a file : <input type="file" name="file" required/></p>'
 	                +'<input type="submit" value="Apply" class="btn btn-primary btn-block mt-4" />'
 	                +'<input type="hidden" name="minGrade" value="'+ offers[i].minGrade +'"/>'
 	                +'<input type="hidden" name="id" value="'+ offers[i].id +'"/>'
