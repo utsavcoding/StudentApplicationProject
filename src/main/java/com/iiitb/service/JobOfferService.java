@@ -70,7 +70,8 @@ public class JobOfferService {
 	public List<JobOffer> findAllJobOfferByRollNumber(String rollNumber) throws Exception{
 		List<JobOffer> jobOffers=filterJobOffer(jobOfferRepository.findAll(),rollNumber);
 		return jobOffers;
-	};
+	}
+	
 	public JobOffer findById(Integer id)throws Exception {
         return jobOfferRepository.findById(id)	;
 	}

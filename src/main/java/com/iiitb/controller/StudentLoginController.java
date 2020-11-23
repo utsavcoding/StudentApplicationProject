@@ -13,6 +13,8 @@ import com.iiitb.service.StudentService;
 
 @Path("/student")
 public class StudentLoginController {
+	
+	StudentService studentService = new StudentService();
 
 	@POST
 	@Path("/login")
@@ -20,7 +22,6 @@ public class StudentLoginController {
     @Produces(MediaType.TEXT_PLAIN)
 	public String loginStudent(String requestJson) {
 		JSONObject responseJson=new JSONObject(requestJson);
-		StudentService studentService = new StudentService();
 		try {
 			Student student = studentService.findByRollNumber(responseJson.getString("rollNumber"));
 			if(student.getPassword().equals(responseJson.getString("password"))){
