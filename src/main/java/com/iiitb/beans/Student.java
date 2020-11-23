@@ -40,7 +40,7 @@ public class Student {
 	@Column(unique = true)
 	private String email;
 	
-	@OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "student")
 	private List<StudentCourse> studentCourses=new ArrayList<StudentCourse>();
 	
 	@ManyToOne
