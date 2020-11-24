@@ -17,7 +17,7 @@ import com.iiitb.repository.StudentRepository;
 public class StudentServiceTest {
 	
 	@InjectMocks
-	StudentService studentService;
+	StudentService studentService=Mockito.spy(new StudentService());
 	
 	@Mock
 	StudentRepository studentRepository;

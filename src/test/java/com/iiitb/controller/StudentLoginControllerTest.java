@@ -16,7 +16,7 @@ import com.iiitb.service.StudentService;
 public class StudentLoginControllerTest {
 	
 	@InjectMocks
-	StudentLoginController studentLoginController;
+	StudentLoginController studentLoginController=Mockito.spy(new StudentLoginController());
 	
 	@Mock
 	StudentService studentService;

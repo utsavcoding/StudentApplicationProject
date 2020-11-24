@@ -18,6 +18,7 @@ import com.iiitb.utils.DBUtils;
 public class JobOfferService {
 	
 	JobOfferRepository jobOfferRepository = new JobOfferRepository();
+	StudentService studentService=new StudentService();
 
 	/**
 	 * This method filters the job offer as per the student's eligibility
@@ -27,8 +28,7 @@ public class JobOfferService {
 	 * @return
 	 * @throws Exception 
 	 */
-	private List<JobOffer> filterJobOffer(List<JobOffer> jobOffers,String rollNumber) throws Exception{
-		StudentService studentService=new StudentService();
+	 public List<JobOffer> filterJobOffer(List<JobOffer> jobOffers,String rollNumber) throws Exception{
 		
 		Student student=studentService.findByRollNumber(rollNumber);
 		
