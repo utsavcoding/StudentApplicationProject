@@ -25,7 +25,12 @@ import com.iiitb.service.StudentService;
 
 @Path("/application")
 public class StudentJobApplicationController {
-	
+
+	FileService fileService=new FileService();
+	JobOfferService jobOfferService = new JobOfferService();
+	StudentService studentService = new StudentService();
+	JobApplicationService jobApplicationService=new JobApplicationService();
+
 	@POST
 	@Path("/apply")
 	@Consumes(MediaType.MULTIPART_FORM_DATA)
@@ -37,25 +42,21 @@ public class StudentJobApplicationController {
             				  @FormDataParam("file") FormDataContentDisposition fileMetaData) throws URISyntaxException{
 			JobApplication jobApplication = new JobApplication();
 	    	String fileName=fileMetaData.getFileName();
-	    	FileService fileService=new FileService();
 	    	fileService.upload(fileInputStream, fileName);
 	    	
 	    	InputStream propertyFileStream = getClass().getClassLoader().getResourceAsStream("config.properties");
             Properties properties = new Properties();
-	    	JobOfferService jobOfferService = new JobOfferService();
 	    	JobOffer jobOffer;
 			try {
 				jobOffer = jobOfferService.findById(id);
 				properties.load(propertyFileStream);
 	            String uploadPath = properties.getProperty("upload.path");
-		    	StudentService studentService = new StudentService();
 				jobApplication.setGrade(minGrade);
 				jobApplication.setCvPath(uploadPath+fileName);
 				Student student = studentService.findByRollNumber(rollNumber);
 				jobApplication.setStudent(student);
 				jobApplication.setJobOffer(jobOffer);
-			
-			JobApplicationService jobApplicationService=new JobApplicationService();
+
 			jobApplicationService.saveJobApplication(jobApplication);
 			} catch (Exception e) {
 				Response.seeOther(new URI("/alumni-placement/offers.html")).build();

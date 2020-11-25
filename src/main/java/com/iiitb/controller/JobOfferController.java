@@ -23,7 +23,7 @@ public class JobOfferController {
         List<JobOffer> offers;
 		try {
 			offers = jobOfferService.findAllJobOfferByRollNumber(rollNumber);
-			if (offers.isEmpty() && offers == null)
+			if (offers.isEmpty() || offers == null)
 	            return Response.noContent().build();
 		} catch (Exception e) {
 			return Response.noContent().build();

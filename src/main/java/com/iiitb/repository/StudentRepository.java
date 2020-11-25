@@ -12,8 +12,10 @@ import com.iiitb.utils.DBUtils;
 
 public class StudentRepository {
 
+    Query query;
+    Session session = DBUtils.getSession();
+
 	public Student findByRollNumber(String rollNumber)throws Exception {
-		Session session = DBUtils.getSession();
         Transaction transaction = session.beginTransaction();
         
         String hql = "FROM Student WHERE rollNumber = :roll_number";
@@ -25,12 +27,11 @@ public class StudentRepository {
         session.close();
         return student;
 	}
-	
+
 	public Double fetchCreditByStudentId(Integer id)throws Exception {
-		Session session = DBUtils.getSession();
         StringBuilder sql=new StringBuilder();
         sql.append("select avg(credit) from StudentCourse where student_id= ").append(id); 
-        Query query = session.createSQLQuery(sql.toString());
+        query = session.createSQLQuery(sql.toString());
         
         Double credit=(double) query.list().get(0);
         
@@ -39,7 +40,6 @@ public class StudentRepository {
 	}
 	
 	public String fetchStudentSpecializationDetail(Integer id){
-		Session session = DBUtils.getSession();
         StringBuilder sql=new StringBuilder();
         sql.append("select student.firstName as name,sum(student_course.credit) as specialization_credit,")
         .append(" spcl.code as specialization_code,spcl.minCredit as min_credit ")
